@@ -1,11 +1,11 @@
-	// <============================ XHOMIE CODE v1.0b ! ==================================> 
+	// <============================ XHOMIE CODE v1.0b ! =================================> 
 	// <==================================================================================>
 	// <=========== Si te gusto el "ONLY PESONAL USE MSJ", tu puedes contactarme, ========>
 	// <===========            Yo estare atento a tus comentarios                 ========>
-	// <===========         sugerencias o ideas para nuevos script Emoticono smile             ========>
+	// <===========      sugerencias o ideas para nuevos script Emoticono smile   ========>
 	// <==================================================================================>
 	// <=======================    Tr.x.Homie@gmail.com    ===============================>
-	// <======================= © 2016 By FV of XHomie ===============================>
+	// <=======================   © 2016 By FV of XHomie   ===============================>
 	// <==================================================================================>
 	// < = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = |>
 	// <==         SI TE SIRVIO, NO OLVIDES MENCIONAR Y AGRADECER BUEN HOMBRE ! Emoticono smile      ==>
@@ -16,27 +16,27 @@
 		//Only config the message in quotes, Don't erase the quotes!!
 		//Solo Configurar el mensaje dentro de las comillas, No debes borrar las comillas!!
 
-		"no me golpeaste", //1Walking Button + Block/Caminar + Blockear
+		"Here You Message/Aqui Mensaje"		,//1 Walking Button + Block/Caminar + Blockear
 
-		"en toda la cara", //2Walking Button + Attack/Caminar + Atacar
+		"Here You Message/Aqui Mensaje"		,//2 Walking Button + Attack/Caminar + Atacar
 
-		"ven aqui", //3Walking Button + Kick/Caminar + Patear
+		"Here You Message/Aqui Mensaje"		,//3 Walking Button + Kick/Caminar + Patear
 
-		"estoy por matarte", //4Reloadeing/Recargando
+		"Here You Message/Aqui Mensaje"		,//4 Reloadeing/Recargando
 
-		"sip", //5Walking Button + Crouch + Attack/Caminar + Agachado + atacar
+		"Here You Message/Aqui Mensaje"		,//5 Walking Button + Crouch + Attack/Caminar + Agachado + atacar
 
-		"te pateare el trasero", //6Walking Button + Crouch + Kick/Caminar + Agachado + Patear
+		"Here You Message/Aqui Mensaje"		,//6 Walking Button + Crouch + Kick/Caminar + Agachado + Patear
 
-		"nop", //7Walking Button + Crouch + Block/Caminar + Agachado + Blockear
+		"Here You Message/Aqui Mensaje"		,//7 Walking Button + Crouch + Block/Caminar + Agachado + Blockear
 
-		"no me das", //8Walking Button + Taking cover / Caminar + Tomando cobertura
+		"Here You Message/Aqui Mensajes"	,//8 Walking Button + Taking cover / Caminar + Tomando cobertura
 
-		"esto servira", //9Drawing wepaon/ tirando Arma
+		"Here You Message/Aqui Mensajea"	,//9 Drawing wepaon/ Tomando Arma
 
-		"la puta madre carajo", //10Death Kneeling/Escena de muerte
+		"Here You Message/Aqui Mensaje"		,//10 Death Kneeling/Escena de muerte
 
-		"esto es sparta (?)" //11Staggering /Asombrado
+		"Here You Message/Aqui Mensaje" 	//11 Staggering /Asombrado
 
 	//<================================<XHCode>========================================================>
 	};public Rodrigo_Settings(){MSJ=msj;}}private XH_for_Rodrigo_MSJMod msj;public void OnStartup(){if(msj==null){msj=new XH_for_Rodrigo_MSJMod();}msj.Shit();}public abstract class Settings{protected static String[] MSJ;protected static String DEFAULT="Here You Message/Aqui Mensaje";protected void SetRodrigo(){Rodrigo_Settings RS=new Rodrigo_Settings();}protected void AddT_Trigger(int interval, int count, String function, String id, bool enabled) {IObjectTimerTrigger timerTrigger=(IObjectTimerTrigger) Game.CreateObject("TimerTrigger");timerTrigger.SetIntervalTime(interval);timerTrigger.SetRepeatCount(count);timerTrigger.SetScriptMethod(function);timerTrigger.SetEnabled(enabled);timerTrigger.CustomId=id;if(enabled) timerTrigger.Trigger();}}public class XH_for_Rodrigo_MSJMod : Settings{private delegate void BringOn(IPlayer pl);private BringOn shmj;public XH_for_Rodrigo_MSJMod(){SetRodrigo();}public void Shit(){if(Game.GetSingleObjectByCustomID("XH-MSJ-2300")==null){AddT_Trigger(0, 0, "_CHRmsj", "XH-MSJ-2300", true);}else{((IObjectTrigger)Game.GetSingleObjectByCustomID("XH-MSJ-2300")).Trigger();}if(shmj==null){shmj= ShowMe.ShowMeMsj;}}public void ShitOn(){if(MSJ != null){if(shmj==null){shmj=ShowMe.ShowMeMsj;}foreach(IPlayer pl in Game.GetPlayers()){if(pl.IsUser && !pl.IsDead){shmj(pl);}}}}private static class ShowMe{private static List<CHHomies> Homies;private class CHHomies{public IPlayer pl{get;set;}public float time{get;set;}public CHHomies(IPlayer pl){this.pl=pl;this.time=Game.TotalElapsedGameTime + 1000;}}public static void ShowMeMsj(IPlayer pl){if(Homies==null) Homies=new List<CHHomies>();if(pl.IsWalking && !pl.IsCrouching && pl.IsBlocking && ChkPLSR(pl)){ShowTheShit(pl, MSJ[0]);}if(pl.IsWalking && !pl.IsCrouching && pl.IsMeleeAttacking && ChkPLSR(pl)){ShowTheShit(pl, MSJ[1]);}if(pl.IsWalking && !pl.IsCrouching && pl.IsKicking && ChkPLSR(pl)){ShowTheShit(pl, MSJ[2]);}if(pl.IsReloading && ChkPLSR(pl)){ShowTheShit(pl, MSJ[3]);}if(pl.IsWalking && pl.IsCrouching && pl.IsMeleeAttacking && ChkPLSR(pl)){ShowTheShit(pl, MSJ[4]);}if(pl.IsWalking && pl.IsCrouching && pl.IsKicking && ChkPLSR(pl)){ShowTheShit(pl, MSJ[5]);}if(pl.IsWalking && pl.IsCrouching && pl.IsBlocking && ChkPLSR(pl)){ShowTheShit(pl, MSJ[6]);}if(pl.IsWalking && pl.IsTakingCover && ChkPLSR(pl)){ShowTheShit(pl, MSJ[7]);}if(pl.IsDrawingWeapon && ChkPLSR(pl)){ShowTheShit(pl, MSJ[8]);}if(pl.IsDeathKneeling && ChkPLSR(pl)){ShowTheShit(pl, MSJ[9]);}if(pl.IsStaggering && ChkPLSR(pl)){ShowTheShit(pl, MSJ[10]);}}private static void ShowTheShit(IPlayer pl, String msj=null){if(msj != null && msj != DEFAULT) Game.PlayEffect("CFTXT", pl.GetWorldPosition() + new Vector2(0f, 30f), msj);Homies.Add(new CHHomies(pl));}private static bool ChkPLSR(IPlayer pl){if(Homies != null)for(int x=0;x < Homies.Count;x++){if(Homies[x] != null && Homies[x].pl.GetUser().Name==pl.GetUser().Name){if(Homies[x].time <= Game.TotalElapsedGameTime){Homies.Remove(Homies[x]);return true;}else{return false;}}}return true;}}}public void _CHRmsj(TriggerArgs args){if(msj != null){msj.ShitOn();}}
